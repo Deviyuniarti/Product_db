@@ -12,10 +12,20 @@
                 <i class="fas fa-plus"></i> Tambah Product
             </a>
         </div>
+
+        <!-- Pastikan CSS ini sudah diprioritaskan dengan important -->
+        <style>
+            /* Menyelaraskan teks tabel */
+            table.dataTable thead th, 
+            table.dataTable tbody td {
+                text-align: center !important;
+            }
+        </style>
+
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="myTable" class="display" role="table" aria-label="Tabel Produk">
+                    <table id="myTable" class="display table-centered" role="table" aria-label="Tabel Produk">
                         <thead>
                             <tr>
                                 <th>ID</th>
