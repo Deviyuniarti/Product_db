@@ -6,18 +6,18 @@
         <div class="d-flex justify-content-between mb-1">
             <ol class="breadcrumb" style="color: #987D9A; border: none; padding: 7px; width: 110px; height: 40px; font-size: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center;">
                 <li class="breadcrumb-item">Data Product</li>
-            </ol>         
+            </ol>
             <a href="/product/create" class="btn btn-primary"
-            style="background: #987D9A !important; color: #fff; border: none; padding: 7px 15px; width: auto; height: 40px; font-size: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+                style="background: #987D9A !important; color: #fff; border: none; padding: 7px 15px; width: auto; height: 40px; font-size: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center;">
                 <i class="fas fa-plus"></i> Tambah Product
             </a>
         </div>
         <div class="card shadow">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" style="border: 1px solid #fff;">
+                    <table id="myTable" class="display" role="table" aria-label="Tabel Produk">
                         <thead>
-                            <tr style="color: black">
+                            <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Price</th>
@@ -34,15 +34,15 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ number_format($product->price, 2, ',', '.') }}</td>
                                     <td>{{ $product->stock }}</td>
-                                    <td>{{ $product->created_at }}</td>
-                                    <td>{{ $product->updated_at }}</td>
-                                    <td>
+                                    <td>{{ \Carbon\Carbon::parse($product->created_at)->format('d-m-Y H:i:s') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($product->updated_at)->format('d-m-Y H:i:s') }}</td>
+                                    <td style="display: flex; gap: 5px;">
                                         <a href="/product/view/{{ $product->id }}" class="btn btn-primary"><i
                                             class="fas fa-eye"></i> View</a>
                                         <a href="/product/edit/{{ $product->id }}" class="btn btn-warning"><i
                                                  class="fas fa-edit"></i> Edit</a>
                                         <a href="/product/delete/{{ $product->id }}" class="btn btn-danger"
-                                            onclick="event.preventDefault(); if(confirm('Apakah Anda yakin ingin menghapus data ini?')) { document.getElementById('delete-form-{{ $product->id }}').submit(); }"><i
+                                            onclick="event.preventDefault(); if(confirm('Apakah Anda yakin ingin menghapus produk {{ $product->name }}?')) { document.getElementById('delete-form-{{ $product->id }}').submit(); }"><i
                                                 class="fas fa-trash"></i> Hapus</a>
                                         <form id="delete-form-{{ $product->id }}"
                                             action="/product/delete/{{ $product->id }}" method="POST"

@@ -37,5 +37,8 @@ class DatabaseSeeder extends Seeder
             'price' => 450.75,
             'stock' => 10,
         ]);
+
+        // Menghasilkan 50 produk palsu
+        Product::factory()->count(50)->create();
     }
 }

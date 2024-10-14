@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sales Purchasing Management</title>
+    <title>Productify</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('template') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('template') }}/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 
 </head>
 
@@ -77,10 +77,9 @@
             </div>
         </div>
     </div>
-    
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('template') }}/vendor/jquery/jquery.min.js"></script>
     <script src="{{ asset('template') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -95,16 +94,16 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('template') }}/js/demo/chart-area-demo.js"></script>
     <script src="{{ asset('template') }}/js/demo/chart-pie-demo.js"></script>
+
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>   
 
     <script>
-        $(document).ready(function() {
-            $('#productsTable').DataTable();
-        });
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
     </script>
 
-
 </body>
-
 </html>

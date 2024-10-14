@@ -30,18 +30,27 @@
                     </div>
                     <div class="card-body">
                         <form>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="inputName" type="text" placeholder="Name" readonly value="{{ $productData->name }}" />
-                                <label for="inputName">Name</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="inputPrice" type="text" placeholder="Price" readonly value="{{ $productData->price }}" />
-                                <label for="inputPrice">Price</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="inputStock" type="text" placeholder="Stock" readonly value="{{ $productData->stock }}" />
-                                <label for="inputStock">Stock</label>
-                            </div>
+                            @if($productData)
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="inputName" type="text" placeholder="Name" readonly value="{{ $productData->name }}" />
+                                    <label for="inputName">Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="inputPrice" type="text" placeholder="Price" readonly value="{{ $productData->price }}" />
+                                    <label for="inputPrice">Price</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="inputStock" type="text" placeholder="Stock" readonly value="{{ $productData->stock }}" />
+                                    <label for="inputStock">Stock</label>
+                                </div>
+                                <!-- Optional description field -->
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" id="inputDescription" placeholder="Description" readonly>{{ $productData->description }}</textarea>
+                                    <label for="inputDescription">Description</label>
+                                </div>
+                            @else
+                                <p>Data produk tidak ditemukan.</p>
+                            @endif
                         </form>
                     </div>
                     <div class="card-footer text-center py-3">
