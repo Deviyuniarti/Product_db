@@ -33,12 +33,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'Koper',
+            'name' => 'Batik',
+            'price' => 450.75,
+            'stock' => 10,
+        ]);
+
+        Product::create([
+            'name' => 'Tolak Angin',
             'price' => 450.75,
             'stock' => 10,
         ]);
 
         // Menghasilkan 50 produk palsu
-        Product::factory()->count(50)->create();
+        Product::factory()->count(100)->create();
     }
 }
